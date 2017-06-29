@@ -4,14 +4,16 @@ A class project that implements MapReduce and Multi-Paxos on a cloud computing i
 
 ## Table of Contents
 
-- [Video overview of project](#video-of-project)
-- What is this project?
-- What does the code do?
-- [Quick demo of Paxos](#quick-demo-of-paxos)
-- How do I run it?
-- [Course details](#course-details)
-- Contact me
 
+- [Table of Contents](#table-of-contents)
+- [Video of project](#video-of-project)
+- [Project overview](#project-overview)
+- [Quick demo of Paxos](#quick-demo-of-paxos)
+- [Setting up the code](#setting-up-the-code)
+- [Running the code](#running-the-code)
+- [Code architecture](#code-architecture)
+- [Course details](#course-details)
+- [Contact](#contact)
 
 
 ## Video of project
@@ -147,7 +149,9 @@ The Paxos part of the code works like this:
 ![](Images/step4.jpg)
 
 
-For more details, please see the code demo.
+For more details, please see the code demo:
+
+- [9:40 Code demo](https://youtu.be/4J92zbRWlzk?t=9m40s)
 
 
 ## Code architecture
