@@ -108,21 +108,21 @@ You can run the project locally or in the cloud.
 
 ### Cloud setup
 
-For the course project, we used the Eucalyptus cloud computing infrastructure (see the Eucalyptus login page at <https://eucalyptus.cloud.eci.ucsb.edu>. The dashboard looks like this:
+For the course project, we used the Eucalyptus cloud computing infrastructure (see the Eucalyptus login page at <https://eucalyptus.cloud.eci.ucsb.edu>). The dashboard looks like this:
 
 ![alt txt](Images/eucalyptus-web-home.png)
 
 **Important:** The scripts `copy-to-euc.sh` and `run-eucalyptus.sh` reference an ssh key named `jppucsbcs171-2.pem` that's used to log in to cloud computers. You should replace these references with the name of your own ssh key.
 
-1. Edit `copy-to-euc.sh` to use the IP addresses of your particular cloud instances. Also edit the name of the SSH key.
-2. Run `copy-to-euc.sh`, which copies the project files to the three Eucalyptus nodes. (Note: It wipes out whatever was on those nodes!)
+1. Edit `copy-to-euc.sh` to use the IP addresses of your particular cloud instances. Also add the name of your own SSH key.
+2. Run `copy-to-euc.sh`, which copies the project files to the three Eucalyptus nodes. (Note: It wipes out the HOME directory on all those nodes!)
 3. Edit `run-eucalyptus.sh` to use the IP addresses of your cloud machines.
 4. Run `run-eucalyptus.sh`, which starts 15 xterm windows -- one for each of the 3 nodes and 5 components (CLI, 2 mappers, reducer, PRM). 
 
 
 ### After setup
 
-Once you have the 15 xterm windows up, you can type into the terminal windows in the leftmost column: these 3 xterm windows are the three nodes' CLIs. Type 'h' for a list of valid commands. Type 'k' to kill all processes on a node. 
+Once you have the 15 xterm windows up, you can type into the 3 nodes' CLIs (the terminal windows in the leftmost column). Type 'h' for a list of valid commands. Type 'k' to kill all processes on a node. 
 
 Now you are ready to run the code.
 
@@ -138,13 +138,13 @@ The basic idea is to use each of the 3 nodes' CLIs to launch MapReduce jobs and 
 
 The Paxos part of the code works like this:
 
-![](Images/step1.png)
+![](Images/step1.jpg)
 
-![](Images/step2.png)
+![](Images/step2.jpg)
 
-![](Images/step3.png)
+![](Images/step3.jpg)
 
-![](Images/step4.png)
+![](Images/step4.jpg)
 
 
 For more details, please see the code demo.
@@ -159,7 +159,7 @@ For a full discussion of the code architecture, please see my discussion of the 
 ## Course details
 
 - CS 171: Distributed Systems
-- Professor Amr El Abbadi
+- Professor Amr El Abbadi (amr@cs.ucsb.edu)
 - Spring quarter 2017
 - University of California, Santa Barbara
 - [CS 171 course website on Piazza](https://piazza.com/class/j0gbt8opotz2rh)
