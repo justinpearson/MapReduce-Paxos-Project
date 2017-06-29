@@ -4,8 +4,6 @@ A class project that implements MapReduce and Multi-Paxos on a cloud computing i
 
 ## Table of Contents
 
-
-- [Table of Contents](#table-of-contents)
 - [Video of project](#video-of-project)
 - [Project overview](#project-overview)
 - [Quick demo of Paxos](#quick-demo-of-paxos)
@@ -140,13 +138,13 @@ The basic idea is to use each of the 3 nodes' CLIs to launch MapReduce jobs and 
 
 The Paxos part of the code works like this:
 
-![](Images/step1.jpg)
+![](Images/step1-border.jpg)
 
-![](Images/step2.jpg)
+![](Images/step2-border.jpg)
 
-![](Images/step3.jpg)
+![](Images/step3-border.jpg)
 
-![](Images/step4.jpg)
+![](Images/step4-border.jpg)
 
 
 For more details, please see the code demo:
@@ -176,3 +174,13 @@ For a full discussion of the code architecture, please see my discussion of the 
 
 
 
+## Table of Contents
+
+- [Video of project](#video-of-project)
+- [Project overview](#project-overview)
+- [Quick demo of Paxos](#quick-demo-of-paxos)
+- [Setting up the code](#setting-up-the-code)
+- [Running the code](#running-the-code)
+- [Code architecture](#code-architecture)
+- [Course details](#course-details)
+- [Contact](#contact)
