@@ -22,7 +22,7 @@ Before you dive in to this readme, maybe you'd prefer watching my video "MapRedu
 - [9:40 Code demo](https://youtu.be/4J92zbRWlzk?t=9m40s)
 - [14:36 Explanation of code architecture](https://youtu.be/4J92zbRWlzk?t=14m36s)
 
-![](Images/paxos-project-on-youtube.png)
+![](Images/paxos-project-on-youtube-border.png)
 
 
 
