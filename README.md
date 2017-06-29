@@ -32,31 +32,30 @@ Before you dive in to this readme, maybe you'd prefer watching my video "MapRedu
 
 The project implements the MapReduce parallel computing algorithm and the Multi-Paxos distributed consensus algorithm.
 
-![](Images/mapreduce-multipaxos-overview-annotated.png)
-
 The code runs on 3 nodes (which may be computers in the cloud or processes running on your local computer); each node is commanded by a human through a command-line interface (CLI). Each node has a large text file on disk and uses MapReduce to parallelize the computation of a word tally of its text file. Then each node uses Multi-Paxos to distribute its tally to its two neighbors in the form of a replicated log. When it completes, each computer has an array of 3 word tallies, one for each text file. Paxos ensures that the arrays are all identical.
+
+Each node runs five processes: a command-line interface, two mappers, a reducer, and a Paxos replication module (PRM). The PRM implements Multi-Paxos to replicate the reducer's output across all three PRMs. Here is how the program lays out the 15 windows (3 nodes * 5 components):
+
+![](Images/mapreduce-multipaxos-overview-annotated.png)
 
 For the class project, we ran our code on three small Linux instances in the Eucalyptus Cloud Computing infrastructure (similar to AWS). However, you can also run the code locally as described below.
 
-Each node runs five processes: a command-line interface, two mappers, a reducer, and a Paxos replication module (PRM). The PRM implements Multi-Paxos to replicate the reducer's output across all three PRMs.
 
-- For the full problem statement from the class, please see <doc/mapreducereplicate.pdf>.
-- For background on Paxos, see my video ["Paxos in Pictures"](https://youtu.be/UUQ8xYWR4do)
-- For a video description of the problem statement, see this part in my "MapReduce / Paxos class project" video:
+- For the full problem statement from the class, please see [`doc/mapreducereplicate.pdf`](doc/mapreducereplicate.pdf).
+- For background on Paxos, see my video ["Paxos in Pictures"](https://youtu.be/UUQ8xYWR4do).
+- For a video description of the problem statement, see my "MapReduce / Paxos class project" video:
     - [0:00 Description of the problem setup](https://youtu.be/4J92zbRWlzk)
 
 
 ## Quick demo of Paxos
 
-If you just want a quick test of the Paxos library without running the whole demo, run `test_paxos.py`, which exercises only `PaxosNode.py`. 
+The file `PaxosNode.py` defines the class `PaxosNode` which embodies a node in the Paxos algorithm. Running `PaxosNode.py` runs a local demo of Paxos.
 
-The `test_paxos.py` file is very short. It sets up 3 nodes as Python objects and establishes a very simple communication mechanism between them.
+Run this if you just want a quick test of Paxos.
+
+The test itself is very short. It sets up 3 nodes as Python objects and establishes a very simple communication mechanism between them:
 
 ```python
-
-#!/usr/bin/env python3
-
-from PaxosNode import PaxosNode 
 
 def main():
 
@@ -98,12 +97,12 @@ if __name__ == '__main__':
 
 ## Setting up the code
 
-You can run the code locally or in the cloud.
+You can run the project locally or in the cloud.
 
 ### Local setup
 
-#. Ensure you have `xterm` installed. (Mac: install [XQuartz](https://www.xquartz.org/).)
-#. Run `run-locally.sh`, which spawns 15 processes in individual `xterm` windows for the CLI, 2 mappers, reducer, and PRM on each of 3 nodes.
+1. Ensure you have `xterm` installed. (Mac: install [XQuartz](https://www.xquartz.org/).)
+2. Run `run-locally.sh`, which spawns 15 processes in individual `xterm` windows for the CLI, 2 mappers, reducer, and PRM on each of 3 nodes.
 
 
 
@@ -115,10 +114,10 @@ For the course project, we used the Eucalyptus cloud computing infrastructure (s
 
 **Important:** The scripts `copy-to-euc.sh` and `run-eucalyptus.sh` reference an ssh key named `jppucsbcs171-2.pem` that's used to log in to cloud computers. You should replace these references with the name of your own ssh key.
 
-#. Edit `copy-to-euc.sh` to use the IP addresses of your particular cloud instances. Also edit the name of the SSH key.
-#. Run `copy-to-euc.sh`, which copies the project files to the three Eucalyptus nodes. (Note: It wipes out whatever was on those nodes!)
-#. Edit `run-eucalyptus.sh` to use the IP addresses of your cloud machines.
-#. Run `run-eucalyptus.sh`, which starts 15 xterm windows -- one for each of the 3 nodes and 5 components (CLI, 2 mappers, reducer, PRM). 
+1. Edit `copy-to-euc.sh` to use the IP addresses of your particular cloud instances. Also edit the name of the SSH key.
+2. Run `copy-to-euc.sh`, which copies the project files to the three Eucalyptus nodes. (Note: It wipes out whatever was on those nodes!)
+3. Edit `run-eucalyptus.sh` to use the IP addresses of your cloud machines.
+4. Run `run-eucalyptus.sh`, which starts 15 xterm windows -- one for each of the 3 nodes and 5 components (CLI, 2 mappers, reducer, PRM). 
 
 
 ### After setup
